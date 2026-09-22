@@ -4,503 +4,1173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meenakshi | Data Science Portfolio</title>
+    <meta name="description"
+        content="Nagolla Meenakshi - B.Tech Computer Science and Engineering Data Science student portfolio.">
+
+    <title>Nagolla Meenakshi | Data Science Portfolio</title>
 
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --bg: #07111f;
+            --bg-light: #0b1728;
+            --card: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.10);
+            --primary: #38bdf8;
+            --primary-dark: #0ea5e9;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --white: #ffffff;
         }
 
         body {
-            background: #f7f9fc;
-            color: #222;
-            line-height: 1.6;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* Navbar */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(7, 17, 31, 0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
         nav {
-            background: #111827;
-            color: white;
-            padding: 18px 8%;
+            height: 75px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
-        nav .logo {
-            font-size: 25px;
-            font-weight: bold;
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        nav ul {
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
             display: flex;
+            gap: 30px;
             list-style: none;
-            gap: 25px;
         }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #38bdf8;
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        /* Hero */
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+            padding-top: 75px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(14, 165, 233, 0.15);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: 5%;
+            right: -10%;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+        }
+
+        .small-title {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         .hero h1 {
-            font-size: 55px;
-            color: #111827;
-            margin-bottom: 10px;
+            font-size: clamp(45px, 8vw, 82px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
         }
 
         .hero h2 {
-            color: #2563eb;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: clamp(22px, 4vw, 34px);
+            color: #cbd5e1;
+            font-weight: 500;
+            margin-bottom: 25px;
         }
 
-        .hero p {
+        .hero-description {
             max-width: 700px;
-            margin: auto;
+            color: var(--muted);
             font-size: 18px;
-            color: #4b5563;
+            margin-bottom: 35px;
         }
 
-        .buttons {
-            margin-top: 30px;
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .btn {
+            padding: 13px 24px;
+            border-radius: 7px;
+            font-weight: 600;
+            transition: 0.3s;
             display: inline-block;
-            padding: 12px 25px;
-            margin: 5px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #2563eb;
-            color: white;
         }
 
-        .btn:hover {
-            background: #1d4ed8;
+        .btn-primary {
+            background: var(--primary);
+            color: #04111d;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
         .btn-outline {
-            background: transparent;
-            border: 2px solid #2563eb;
-            color: #2563eb;
+            border: 1px solid var(--border);
+            color: var(--white);
         }
 
         .btn-outline:hover {
-            background: #2563eb;
-            color: white;
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
         }
 
-        /* Common section */
+        /* =========================
+           SECTIONS
+        ========================== */
+
         section {
-            padding: 80px 8%;
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-number {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 35px;
-            margin-bottom: 45px;
-            color: #111827;
+            font-size: 40px;
+            margin-top: 8px;
         }
 
-        /* About */
-        .about {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-            color: #4b5563;
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 15px;
         }
 
-        /* Skills */
-        .skills-container {
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
             gap: 20px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+        }
+
+        .info-value {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
 
         .skill-card {
-            background: white;
             padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.5);
         }
 
         .skill-card h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         .skill-card p {
-            color: #555;
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        /* Projects */
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        /* =========================
+           PROJECTS
+        ========================== */
 
         .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 35px;
+            max-width: 850px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 30px;
+        }
+
+        .project-date {
+            color: var(--primary);
+            font-size: 14px;
         }
 
         .project-card h3 {
-            color: #2563eb;
-            margin-bottom: 12px;
+            font-size: 27px;
+            margin-bottom: 15px;
         }
 
         .project-card p {
-            color: #555;
+            color: var(--muted);
+            margin-bottom: 20px;
         }
 
-        /* Education */
-        .education-card {
-            max-width: 750px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-left: 5px solid #2563eb;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .education-card h3 {
-            color: #2563eb;
+        .tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--primary);
+            font-size: 13px;
+            border: 1px solid rgba(56, 189, 248, 0.15);
         }
 
-        /* Certifications */
-        .certificate {
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 30px;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            left: -37px;
+            top: 7px;
+        }
+
+        .timeline-year {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .timeline-item h3 {
+            font-size: 22px;
+            margin: 5px 0;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           CERTIFICATION
+        ========================== */
+
+        .certificate-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
             max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
-        /* Contact */
-        .contact {
-            text-align: center;
+        .certificate-card h3 {
+            margin-bottom: 8px;
         }
 
-        .contact p {
-            margin: 10px 0;
-            font-size: 18px;
+        .certificate-card p {
+            color: var(--muted);
         }
 
-        .contact a {
-            color: #2563eb;
-            text-decoration: none;
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            max-width: 850px;
+            padding: 40px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
         }
 
-        /* Footer */
+        .contact-box h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box > p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-item {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .contact-item small {
+            color: var(--muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            word-break: break-word;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
-            background: #111827;
-            color: white;
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
             text-align: center;
-            padding: 25px;
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        /* Mobile */
-        @media (max-width: 768px) {
+        /* =========================
+           ANIMATION
+        ========================== */
 
-            nav {
-                flex-direction: column;
-                gap: 15px;
+        .fade-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            nav ul {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 25px;
+                display: none;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 40px;
+                font-size: 48px;
             }
 
-            .hero h2 {
-                font-size: 22px;
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+
+            .project-top {
+                align-items: flex-start;
             }
 
             section {
-                padding: 60px 5%;
+                padding: 75px 0;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Meenakshi</div>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
 
+        <div class="container">
 
-    <!-- Home -->
-    <section class="hero" id="home">
+            <nav>
 
-        <div>
-            <h1>Hi, I'm Meenakshi</h1>
-
-            <h2>Data Science Student</h2>
-
-            <p>
-                Final-year B.Tech Computer Science and Engineering
-                (Data Science) student passionate about Python,
-                Machine Learning, SQL and technology.
-            </p>
-
-            <div class="buttons">
-                <a href="#projects" class="btn">View Projects</a>
-
-                <a href="#contact" class="btn btn-outline">
-                    Contact Me
+                <a href="#home" class="logo">
+                    Meenakshi<span>.</span>
                 </a>
-            </div>
-        </div>
 
-    </section>
+                <div class="menu-btn" onclick="toggleMenu()">
+                    ☰
+                </div>
 
+                <ul class="nav-links" id="navLinks">
 
-    <!-- About -->
-    <section id="about">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
 
-        <h2 class="section-title">About Me</h2>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
 
-        <div class="about">
+                    <li>
+                        <a href="#skills">Skills</a>
+                    </li>
 
-            <p>
-                I am a final-year B.Tech Computer Science and Engineering
-                (Data Science) student with hands-on knowledge of Python,
-                Java, R, SQL and MySQL. I also have working knowledge of
-                Machine Learning and front-end development using HTML and CSS.
-            </p>
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
 
-            <br>
+                    <li>
+                        <a href="#education">Education</a>
+                    </li>
 
-            <p>
-                I enjoy learning new technologies, solving problems and
-                building practical projects. I am currently preparing for
-                software engineering and data science opportunities.
-            </p>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
 
-        </div>
+                </ul>
 
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills">
-
-        <h2 class="section-title">My Skills</h2>
-
-        <div class="skills-container">
-
-            <div class="skill-card">
-                <h3>Python</h3>
-                <p>Programming and problem solving</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Java</h3>
-                <p>Fundamentals</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>R</h3>
-                <p>Fundamentals</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>HTML & CSS</h3>
-                <p>Front-end development</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Machine Learning</h3>
-                <p>Fundamentals</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>SQL & MySQL</h3>
-                <p>Joins, Group By and Aggregation</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Git & GitHub</h3>
-                <p>Version control and repositories</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Soft Skills</h3>
-                <p>Communication & Teamwork</p>
-            </div>
+            </nav>
 
         </div>
 
-    </section>
+    </header>
 
 
-    <!-- Projects -->
-    <section id="projects">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-        <h2 class="section-title">My Projects</h2>
+    <main>
 
-        <div class="projects-container">
+        <section class="hero" id="home">
 
-            <div class="project-card">
+            <div class="container">
 
-                <h3>Fake News Detection</h3>
+                <div class="hero-content fade-up">
 
-                <p>
-                    A project focused on detecting whether news content
-                    is genuine or fake using Machine Learning concepts.
-                </p>
+                    <div class="small-title">
+                        HELLO, I'M
+                    </div>
 
-                <br>
+                    <h1>
+                        Nagolla <span>Meenakshi</span>
+                    </h1>
 
-                <p>
-                    <strong>Year:</strong> April 2026
-                </p>
+                    <h2>
+                        Data Science Student
+                    </h2>
+
+                    <p class="hero-description">
+                        Final-year B.Tech Computer Science and Engineering
+                        (Data Science) student with hands-on knowledge of
+                        Python, Java, R, SQL, MySQL, Machine Learning,
+                        HTML and CSS.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects"
+                           class="btn btn-primary">
+                            View My Work
+                        </a>
+
+                        <a href="mailto:meena.aficionado@gmail.com"
+                           class="btn btn-outline">
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- Education -->
-    <section id="education">
+        <!-- =========================
+             ABOUT
+        ========================== -->
 
-        <h2 class="section-title">Education</h2>
+        <section id="about">
 
-        <div class="education-card">
+            <div class="container">
 
-            <h3>
-                B.Tech – Computer Science & Engineering
-                (Data Science)
-            </h3>
+                <div class="section-heading fade-up">
 
-            <p>
-                <strong>DRK College of Engineering Technology</strong>
-            </p>
+                    <div class="section-number">
+                        01 — ABOUT
+                    </div>
 
-            <p>
-                Expected Graduation: 2027
-            </p>
+                    <h2 class="section-title">
+                        About Me
+                    </h2>
 
-        </div>
+                    <div class="section-line"></div>
 
-    </section>
+                </div>
 
 
-    <!-- Certifications -->
-    <section id="certifications">
+                <div class="about-grid">
 
-        <h2 class="section-title">Certifications</h2>
+                    <div class="about-text fade-up">
 
-        <div class="certificate">
+                        <p>
+                            I am a final-year B.Tech Computer Science and
+                            Engineering (Data Science) student with hands-on
+                            skills in Python, Java, R, SQL and MySQL.
+                        </p>
 
-            <h3>JNTUH-UCESTH [PRAGNYA]</h3>
+                        <p>
+                            I also have working knowledge of Machine Learning
+                            and front-end development using HTML and CSS.
+                            I am interested in applying my technical and
+                            analytical skills to real-world problems.
+                        </p>
 
-        </div>
+                        <p>
+                            I am currently preparing for software engineering
+                            and data science opportunities where I can
+                            continue learning and developing professionally.
+                        </p>
 
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact">
-
-        <h2 class="section-title">Contact Me</h2>
-
-        <div class="contact">
-
-            <p>
-                📍 Hyderabad, India
-            </p>
-
-            <p>
-                📧
-                <a href="mailto:meena.aficionado@gmail.com">
-                    meena.aficionado@gmail.com
-                </a>
-            </p>
-
-            <p>
-                📱 +91 7075366470
-            </p>
-
-            <p>
-                💻
-                <a href="https://github.com/Meenakshi-star537"
-                   target="_blank">
-                    GitHub
-                </a>
-            </p>
-
-            <p>
-                🔗
-                <a href="#" target="_blank">
-                    LinkedIn
-                </a>
-            </p>
-
-        </div>
-
-    </section>
+                    </div>
 
 
-    <!-- Footer -->
+                    <div class="info-box fade-up">
+
+                        <div class="info-item">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">
+                                Hyderabad, India
+                            </span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Degree</span>
+                            <span class="info-value">
+                                B.Tech
+                            </span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Specialization</span>
+                            <span class="info-value">
+                                Data Science
+                            </span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">Graduation</span>
+                            <span class="info-value">
+                                2027
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading fade-up">
+
+                    <div class="section-number">
+                        02 — SKILLS
+                    </div>
+
+                    <h2 class="section-title">
+                        Technical Skills
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card fade-up">
+                        <h3>Python</h3>
+                        <p>Programming & problem solving</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>Java</h3>
+                        <p>Fundamentals</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>R</h3>
+                        <p>Fundamentals</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>HTML & CSS</h3>
+                        <p>Front-end development</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>Machine Learning</h3>
+                        <p>Fundamentals</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>SQL</h3>
+                        <p>Queries, joins & aggregation</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>MySQL</h3>
+                        <p>Database fundamentals</p>
+                    </div>
+
+                    <div class="skill-card fade-up">
+                        <h3>Git & GitHub</h3>
+                        <p>Version control</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading fade-up">
+
+                    <div class="section-number">
+                        03 — PROJECTS
+                    </div>
+
+                    <h2 class="section-title">
+                        Featured Project
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="project-card fade-up">
+
+                    <div class="project-top">
+
+                        <div class="project-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <div class="project-date">
+                            APRIL 2026
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        Fake News Detection
+                    </h3>
+
+                    <p>
+                        A Machine Learning-focused project developed to
+                        detect and classify news content as fake or genuine.
+                        The project reflects an application of data science
+                        and Machine Learning concepts to a real-world
+                        information problem.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Python
+                        </span>
+
+                        <span class="tag">
+                            Machine Learning
+                        </span>
+
+                        <span class="tag">
+                            Data Science
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-heading fade-up">
+
+                    <div class="section-number">
+                        04 — EDUCATION
+                    </div>
+
+                    <h2 class="section-title">
+                        Education
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item fade-up">
+
+                        <div class="timeline-year">
+                            EXPECTED 2027
+                        </div>
+
+                        <h3>
+                            B.Tech in Computer Science & Engineering
+                            (Data Science)
+                        </h3>
+
+                        <p>
+                            DRK College of Engineering Technology
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CERTIFICATION
+        ========================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-heading fade-up">
+
+                    <div class="section-number">
+                        05 — CERTIFICATION
+                    </div>
+
+                    <h2 class="section-title">
+                        Certification
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="certificate-card fade-up">
+
+                    <h3>
+                        JNTUH-UCESTH [PRAGNYA]
+                    </h3>
+
+                    <p>
+                        Certification listed in my academic profile.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-heading fade-up">
+
+                    <div class="section-number">
+                        06 — CONTACT
+                    </div>
+
+                    <h2 class="section-title">
+                        Let's Connect
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="contact-box fade-up">
+
+                    <h3>
+                        Get in touch
+                    </h3>
+
+                    <p>
+                        I am open to connecting regarding internships,
+                        projects, learning opportunities and entry-level
+                        professional opportunities.
+                    </p>
+
+
+                    <div class="contact-list">
+
+                        <div class="contact-item">
+
+                            <small>Email</small>
+
+                            <a href="mailto:meena.aficionado@gmail.com">
+                                meena.aficionado@gmail.com
+                            </a>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <small>Phone</small>
+
+                            <span>
+                                +91 7075366470
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <small>GitHub</small>
+
+                            <a href="https://github.com/Meenakshi-star537"
+                               target="_blank">
+                                github.com/Meenakshi-star537
+                            </a>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <small>LinkedIn</small>
+
+                            <a href="#"
+                               target="_blank">
+                                Add your LinkedIn URL
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
-        <p>
-            © 2026 Meenakshi | Data Science Portfolio
-        </p>
+        <div class="container">
+
+            <p>
+                © 2026 Nagolla Meenakshi. All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* Mobile menu */
+
+        function toggleMenu() {
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            navLinks.classList.toggle("active");
+
+        }
+
+
+        /* Close mobile menu after clicking */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("active");
+
+            });
+
+        });
+
+
+        /* Scroll animation */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(".fade-up")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+    </script>
 
 </body>
 </html>
