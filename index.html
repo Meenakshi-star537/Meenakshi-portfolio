@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meenakshi | Data Science Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            color: #2563eb;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Common section */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+            color: #111827;
+        }
+
+        /* About */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .skill-card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #555;
+        }
+
+        /* Projects */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #555;
+        }
+
+        /* Education */
+        .education-card {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-left: 5px solid #2563eb;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .education-card h3 {
+            color: #2563eb;
+        }
+
+        /* Certifications */
+        .certificate {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .contact a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Meenakshi</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Home -->
+    <section class="hero" id="home">
+
+        <div>
+            <h1>Hi, I'm Meenakshi</h1>
+
+            <h2>Data Science Student</h2>
+
+            <p>
+                Final-year B.Tech Computer Science and Engineering
+                (Data Science) student passionate about Python,
+                Machine Learning, SQL and technology.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">View Projects</a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+
+            <p>
+                I am a final-year B.Tech Computer Science and Engineering
+                (Data Science) student with hands-on knowledge of Python,
+                Java, R, SQL and MySQL. I also have working knowledge of
+                Machine Learning and front-end development using HTML and CSS.
+            </p>
+
+            <br>
+
+            <p>
+                I enjoy learning new technologies, solving problems and
+                building practical projects. I am currently preparing for
+                software engineering and data science opportunities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Programming and problem solving</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Java</h3>
+                <p>Fundamentals</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>R</h3>
+                <p>Fundamentals</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>HTML & CSS</h3>
+                <p>Front-end development</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <p>Fundamentals</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>SQL & MySQL</h3>
+                <p>Joins, Group By and Aggregation</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Git & GitHub</h3>
+                <p>Version control and repositories</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Soft Skills</h3>
+                <p>Communication & Teamwork</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+
+                <h3>Fake News Detection</h3>
+
+                <p>
+                    A project focused on detecting whether news content
+                    is genuine or fake using Machine Learning concepts.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>Year:</strong> April 2026
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education -->
+    <section id="education">
+
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-card">
+
+            <h3>
+                B.Tech – Computer Science & Engineering
+                (Data Science)
+            </h3>
+
+            <p>
+                <strong>DRK College of Engineering Technology</strong>
+            </p>
+
+            <p>
+                Expected Graduation: 2027
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Certifications -->
+    <section id="certifications">
+
+        <h2 class="section-title">Certifications</h2>
+
+        <div class="certificate">
+
+            <h3>JNTUH-UCESTH [PRAGNYA]</h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact">
+
+            <p>
+                📍 Hyderabad, India
+            </p>
+
+            <p>
+                📧
+                <a href="mailto:meena.aficionado@gmail.com">
+                    meena.aficionado@gmail.com
+                </a>
+            </p>
+
+            <p>
+                📱 +91 7075366470
+            </p>
+
+            <p>
+                💻
+                <a href="https://github.com/Meenakshi-star537"
+                   target="_blank">
+                    GitHub
+                </a>
+            </p>
+
+            <p>
+                🔗
+                <a href="#" target="_blank">
+                    LinkedIn
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Meenakshi | Data Science Portfolio
+        </p>
+
+    </footer>
+
+</body>
+</html>
